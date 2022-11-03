@@ -1,26 +1,32 @@
 <?php
 namespace App\Controller;
 
+use Capabilitie;
 
 abstract class Equide extends Animal
 {
+
     // Propriétés
     protected string $id;
     protected int $water;
     protected Rider $rider;
     protected Category $category;
     protected Color $color;
+    protected Capabilitie $capabilitie;
+    private int $tabCheval;
     
 
     // Constructeur
     
-    public function __construct(string $id, int $water, Rider $rider, Category $category, Color $color)
+    public function __construct(string $id, int $water, Rider $rider, Category $category, Color $color, int $tabCheval, Capabilitie $capabilitie)
     {
         $this->setId($id)
             ->setWater($water)
             ->setRider($rider)
             ->setCategory($category)
             ->setColor($color)
+            ->setTabCheval($tabCheval)
+            ->setCapabilitie($capabilitie)
             ;
     }
 
@@ -106,46 +112,14 @@ Et Nest le nombre d'équidés créés au moment de la création de celui-ci.
      */ 
     public function setRider($rider): self
     {
-        $this->rider = $rider;
-
-        //Affecte un Cavalier au cheval, nous limiterons la possibilités pour un Cavalier d'avoir uniquement 5 Equidés
-
+        if($this->tabCheval>=5){
+            echo"impossible d'ajouter un cheval en plus, vous en avez deja 5";
+        }else{
+            $this->tabCheval++;
+            $this->rider = $rider;
+        }
         return $this;
     }
-
-    /*
-    private array $tabPoke;
-    private Dresseur $dresseur;
-
-    // Constructeur
-    public function __construct(Dresseur $dresseur, array $tabPoke = []){
-        $this->setTabPoke($tabPoke)
-            ->setDresseur($dresseur);
-    }
-
-    public function addPokemon(Pokemon $pokemon): self
-    {
-        $this->tabPoke[] = $pokemon;
-        // $this->setTabPoke($this->getTabPoke()[] = $pokemon);
-
-        return $this;
-    }
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /**
      * Get the value of category
@@ -174,5 +148,54 @@ Et Nest le nombre d'équidés créés au moment de la création de celui-ci.
         Couleur : {$this->getColor()}\n
         Consomation d'eau : {$this->getWater()}\n"
         ;
+    }
+
+    /**
+     * Get the value of tabCheval
+     */ 
+    public function getTabCheval(): int
+    {
+        return $this->tabCheval;
+    }
+
+    /**
+     * Set the value of tabCheval
+     *
+     * @return  self
+     */ 
+    public function setTabCheval($tabCheval): self
+    {
+        $this->tabCheval = $tabCheval;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of capabilitie
+     */ 
+    public function getCapabilitie(): Capabilitie
+    {
+        return $this->capabilitie;
+    }
+
+    /**
+     * Set the value of capabilitie
+     *
+     * @return  self
+     */ 
+    public function setCapabilitie($capabilitie): self
+    {
+        if($this->category = 'Horse'){
+            if($capabilitie = 'PoneyGames'){
+                echo "ta deja vu un cheval au PoneyGames toi ? :) \n 
+                Merci d'inscrire votre cheval à un autre type de compétition";
+            }
+            else{
+
+                $this->capabilitie = $capabilitie;
+            }
+        }
+
+        return $this;
     }
 }

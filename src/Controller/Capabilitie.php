@@ -1,54 +1,34 @@
 <?php
-namespace App\Controller;
 
-
-class Capabilitie
+abstract class Capabilitie 
 {
+    
     // Propriétés
+    protected array $nom;
 
-protected array $capacite;
-
-
-    /**
-     * @param string $societe
-     */
-    public function __construct(array $capacite = ["Saut","Dressage","Cross","PoneyGames"])
+    public function __construct(array $nom = ["Saut","Dressage","Crosse","PoneyGame"])
     {
-        $this->setCapacite($capacite);
+        $this->setNom($nom);
+
     }
 
-
-/**
- * Get the value of capcite
- */ 
-public function getCapacite(): array
-{
-return $this->capacite;
-}
-
-/**
- * Set the value of capcite
- *
- * @return  self
- */ 
-public function setCapacite($capacite): self
-{
-$this->capacite = $capacite;
-
-// Attention les chevaux ne peuvent pas participer aux PoneyGames
-
-return $this;
-}
-
-
+    /**
+     * Get the value of nom
+     */ 
+    public function getNom(): array
+    {
+        return $this->nom;
+    }
 
     /**
-     * @return string
-     */
-    public function __toString(): string
+     * Set the value of nom
+     *
+     * @return  self
+     */ 
+    protected function setNom($nom): self
     {
-        return "Détail de la(les) capacité(s) :\n
-        Nom : {$this->getCapacite()}\n
-        ";
+        $this->nom = $nom;
+
+        return $this;
     }
 }
