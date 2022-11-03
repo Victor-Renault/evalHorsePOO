@@ -6,19 +6,21 @@ abstract class Equide extends Animal
 {
     // Propriétés
     protected string $id;
-    protected array $color;
     protected int $water;
     protected Rider $rider;
+    protected Category $category;
+    protected Color $color;
     
 
     // Constructeur
     
-    public function __construct(string $id, array $color = ["Alzan","Bai", "Pie", "Grey", "White"], int $water, Rider $rider)
+    public function __construct(string $id, int $water, Rider $rider, Category $category, Color $color)
     {
         $this->setId($id)
-            ->setColor($color)
             ->setWater($water)
             ->setRider($rider)
+            ->setCategory($category)
+            ->setColor($color)
             ;
     }
 
@@ -43,6 +45,7 @@ Et Nest le nombre d'équidés créés au moment de la création de celui-ci.
      */ 
     public function setId($id): self
     {
+
         $this->id = $id;
 
         return $this;
@@ -51,7 +54,7 @@ Et Nest le nombre d'équidés créés au moment de la création de celui-ci.
     /**
      * Get the value of color
      */ 
-    public function getColor(): array
+    public function getColor(): Color
     {
         return $this->color;
     }
@@ -106,6 +109,60 @@ Et Nest le nombre d'équidés créés au moment de la création de celui-ci.
         $this->rider = $rider;
 
         //Affecte un Cavalier au cheval, nous limiterons la possibilités pour un Cavalier d'avoir uniquement 5 Equidés
+
+        return $this;
+    }
+
+    /*
+    private array $tabPoke;
+    private Dresseur $dresseur;
+
+    // Constructeur
+    public function __construct(Dresseur $dresseur, array $tabPoke = []){
+        $this->setTabPoke($tabPoke)
+            ->setDresseur($dresseur);
+    }
+
+    public function addPokemon(Pokemon $pokemon): self
+    {
+        $this->tabPoke[] = $pokemon;
+        // $this->setTabPoke($this->getTabPoke()[] = $pokemon);
+
+        return $this;
+    }
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Get the value of category
+     */ 
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set the value of category
+     *
+     * @return  self
+     */ 
+    public function setCategory($category)
+    {
+        $this->category = $category;
 
         return $this;
     }

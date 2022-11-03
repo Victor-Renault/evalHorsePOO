@@ -10,17 +10,17 @@ abstract class Human
     protected string $street;
     protected string $postCode;
     protected string $city;
-    //protected Categorie $Categorie;
+    protected Categorie $Categorie;
 
     // Constructeur
-    public function __construct(string $nom, string $adresse, string $street, string $postCode, string $city/*, Categorie $categorie*/)
+    public function __construct(string $nom, string $adresse, string $street, string $postCode, string $city, Categorie $categorie)
     {
         $this->setNom($nom)
             ->setAdresse($adresse)
             ->setStreet($street)
             ->setPostCode($postCode)
             ->setCity($city)
-            //->Categorie($categorie);
+            ->setCategorie($categorie);
             ;
     }
 
@@ -130,7 +130,7 @@ abstract class Human
     /**
      * Get the value of Categorie
      */ 
-    public function getCategorie()//: Categorie
+    public function getCategorie(): Categorie
     {
         return $this->Categorie;
     }

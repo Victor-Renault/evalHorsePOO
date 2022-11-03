@@ -25,7 +25,8 @@ class Manager extends Human
         Adresse : {$this->getAdresse()}\n
         Rue : {$this->getStreet()}\n
         PostCode : {$this->getpostCode()}\n
-        City : {$this->getCity()}\n";
+        City : {$this->getCity()}\n
+        Categorie du Manager : {$this->getCategorie()}\n";
     }
 
 }

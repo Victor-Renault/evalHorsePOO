@@ -30,7 +30,8 @@ class Rider extends Human
         Adresse : {$this->getAdresse()}\n
         Rue : {$this->getStreet()}\n
         PostCode : {$this->getpostCode()}\n
-        City : {$this->getCity()}\n";
+        City : {$this->getCity()}\n
+        Categorie du Rider : {$this->getCategorie()}\n";
     }
 
 }

@@ -8,3 +8,15 @@ require_once('../vendor/autoload.php');
 define('TEMPLATES_DIR', __DIR__ . '/../templates/');
 define('SRC_DIR', __DIR__ . '/');
 define('PUBLIC_DIR', __DIR__ . '/../public/');
+
+
+$categorie = new ("Manager");
+$categorie = new ("Saut");
+/*
+$collection = new Collection($dresseur);
+$collection->addPokemon($pikachu)
+    ->addPokemon($evoli);
+// var_dump($dresseur);
+var_dump($collection);
+
+*/
