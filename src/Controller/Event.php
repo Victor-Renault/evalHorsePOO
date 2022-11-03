@@ -2,21 +2,39 @@
 namespace App\Controller;
 
 
-abstract class event
+abstract class Event
 {
     // Propriétés
     protected int $maxCommitments;
     protected int $maxWater;
+    protected Equide $equide;
+    private array $tabChevalDeCompeteWow;
     
 
     // Constructeur
     
-    public function __construct(int $maxCommitments, int $maxWater)
+    public function __construct(int $maxCommitments, int $maxWater, Equide $equide, array $tabChevalDeCompeteWow = [])
     {
         $this->setMaxCommitments($maxCommitments)
             ->setMaxWater($maxWater)
-
+            ->setEquide($equide)
+            ->setTabChevalDeCompeteWow($tabChevalDeCompeteWow)
             ;
+    }
+
+    public function subscribeHorse(Equide $equide): self
+    {
+        $e = array_diff($this->tabChevalDeCompeteWow[],$equide);
+        if($e === $this->tabChevalDeCompeteWow){
+            $this->tabChevalDeCompeteWow[] = $equide;
+            return $this;
+        }else{
+            echo "votre cheval est deja inscrit";
+        }
+        $maxwater = $this->maxwater + $this->water;
+        if($this->water){
+//l'idee c'est de récuperer la somme de la conso, si elle est supp a la capacité max, en empeche l'inscription
+        }
     }
 
 
@@ -60,11 +78,6 @@ abstract class event
         return $this;
     }
 
-    public function subscribeHorse()
-    {
-        //Il n'est pas possible d'inscrire deux fois un même cheval pour un événement donné.
-        //Suite aux restrictions écologiques l'évènement est limité dans sa capacité d'eau. Pensez bien à vérifier ce que chaque équidé consomme.
-    }
 
     public function __toString(): string
     {
@@ -72,5 +85,45 @@ abstract class event
         Nombre max de participant : {$this->getMaxCommitments()}\n
         Quantié d'eau max : {$this->getMaxWater()}\n"
         ;
+    }
+
+    /**
+     * Get the value of equide
+     */ 
+    public function getEquide()
+    {
+        return $this->equide;
+    }
+
+    /**
+     * Set the value of equide
+     *
+     * @return  self
+     */ 
+    public function setEquide($equide)
+    {
+        $this->equide = $equide;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of tabChevalDeCompeteWow
+     */ 
+    public function getTabChevalDeCompeteWow()
+    {
+        return $this->tabChevalDeCompeteWow;
+    }
+
+    /**
+     * Set the value of tabChevalDeCompeteWow
+     *
+     * @return  self
+     */ 
+    public function setTabChevalDeCompeteWow($tabChevalDeCompeteWow)
+    {
+        $this->tabChevalDeCompeteWow = $tabChevalDeCompeteWow;
+
+        return $this;
     }
 }
