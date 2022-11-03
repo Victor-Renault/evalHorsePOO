@@ -45,7 +45,6 @@ class Ecurie
     }
 
 
-
     /**
      * Get the value of adresse
      */ 

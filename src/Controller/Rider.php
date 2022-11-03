@@ -7,14 +7,9 @@ class Rider extends Human
     // Propriétés
 
 
-
-
-    /**
-     * @param string $societe
-     */
-    public function __construct(string $nom, string $adresse, string $street, string $postCode, string $city)
+    public function __construct(string $nom, string $adresse, string $street, string $postCode, string $city, Categorie $categorie)
     {
-        parent::__construct($nom,$adresse,$street,$postCode,$city);
+        parent::__construct($nom,$adresse,$street,$postCode,$city,$categorie);
     }
 
     /*

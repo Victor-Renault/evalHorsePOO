@@ -7,11 +7,6 @@ abstract class Animal
     // Propriétés
 
 
-
-
-    /**
-     * @param string $societe
-     */
     public function __construct()
     {
     }
