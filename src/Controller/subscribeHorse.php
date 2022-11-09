@@ -5,13 +5,13 @@ namespace App\Controller;
 class subscribeHorse extends Event{
 
 
-    public function subscribeHorse(Equide $equide): string
+    public function subscribeHorse(Equide $equide,array $tabChevalDeCompeteWow, int $actualWater, int $water, int $maxWater): string
     {
         // On compare nos 2 tableaux, si la fonction ne retourne rien, le cheval n'est pas inscrit, sinon on renvoit un message d'erreur
 
-        $e = array_diff($this->tabChevalDeCompeteWow[],$equide);
-        if($e === $this->tabChevalDeCompeteWow){
-            $this->tabChevalDeCompeteWow[] = $equide;
+        $e = array_diff($tabChevalDeCompeteWow[],$equide);
+        if($e === $tabChevalDeCompeteWow){
+            $tabChevalDeCompeteWow[] = $equide;
             return $this;
         }else{
             throw new \Exception("votre cheval est deja inscrit");
@@ -20,8 +20,8 @@ class subscribeHorse extends Event{
         // On ajoute la consommation d'eau du cheval a la consommation total des chevaux deja inscrit
         // Si cette valeur est supérieur a la capacité maximum d'approvisionnement en eau du haras, on renvoit un messag d'erreur
 
-        $this->actualWater = $this->actualWater + $this->water;
-        if($this->actualWater > $this->maxWater){
+        $actualWater = $actualWater + $water;
+        if($actualWater > $maxWater){
             throw new \Exception(" le haras est dans l'inscapacité d'approvisionner l'eau nécéssaire à votre cheval, merci de votre compréhension");
         }
 

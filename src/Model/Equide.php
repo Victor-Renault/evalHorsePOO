@@ -12,7 +12,7 @@ abstract class Equide
     protected Category $category;
     protected Color $color;
     protected Capability $capability;
-    private int $tabCheval;
+    protected int $tabCheval;
     
 
     // Constructeur
@@ -49,7 +49,7 @@ abstract class Equide
         $this->id = $id;
         $this->id .= $this->category[0] . '-'; // on prend la premiere lettre du nom
         $this->id .= $this->color[0] . '-'; // la premiere lettre de la couleur
-        $this->id .= count($id); // on compte le nombre d'id enregsitré ce qui correspond au nombre de chevaux ajoutés.
+        $this->id .= count($id); // on compte le nombre d'id enregsitré ce qui correspond au nombre de chevaux ajoutés au moment de l'ajout du cheval.
 
 
         return $this;

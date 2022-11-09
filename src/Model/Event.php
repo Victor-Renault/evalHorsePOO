@@ -8,8 +8,8 @@ abstract class Event
     protected int $maxCommitments;
     protected int $maxWater;
     protected Equide $equide;
-    private array $tabChevalDeCompeteWow;
-    private int $actualWater;
+    protected array $tabChevalDeCompeteWow;
+    protected int $actualWater;
     
 
     // Constructeur

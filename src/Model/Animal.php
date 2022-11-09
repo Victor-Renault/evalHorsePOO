@@ -5,6 +5,7 @@ namespace App\Controller;
 abstract class Animal
 {
     // Propriétés
+    
 
 
     public function __construct()

@@ -35,7 +35,7 @@ class Rider extends Human
      * @return  self
      */ 
 
-    private function setGameType(Equide $capabilitie, Equide $rider, $gameType)
+    private function setGameType(Equide $capabilitie, Equide $rider, $gameType): string
     {
         subRider::subRider($capabilitie, $rider, $gameType);
         $this->gameType = $gameType;

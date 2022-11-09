@@ -4,7 +4,8 @@ namespace App\Controller;
 
 class subRider extends Equide{
 
-    public function subRider($capabilitie, $rider, $gameType){
+    public static function subRider($capabilitie, $rider, $gameType): string
+    {
 
         // On récupere chaque capabilitie de chacun de ses cheavaux 
 
