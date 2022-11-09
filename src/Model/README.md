@@ -1,1 +1,1 @@
-# Vous créerez ici les classes model si nécessaire a votre application
+# quand a ce dossier, c'est plutot les getters et les setters de mes classes

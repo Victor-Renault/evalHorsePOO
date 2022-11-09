@@ -1,1 +1,1 @@
-# Vous créerez ici les classes controller si nécessaire a votre application
+# Ici repose le secret des fonctions permettant de réguler l'ajout des utilisateurs visselard et malhonnete
