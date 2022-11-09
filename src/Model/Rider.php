@@ -25,6 +25,7 @@ class Rider extends Human
         Rue : {$this->getStreet()}\n
         PostCode : {$this->getpostCode()}\n
         City : {$this->getCity()}\n
+        Jeu du Rider : {$this->getGameType()}\n
         Categorie du Rider : {$this->getCategorie()}\n";
     }
 
@@ -42,4 +43,10 @@ class Rider extends Human
 
         
     }
+    private function getGameType()
+    {
+        return $this->gameType;         
+    }
+
+    
 }

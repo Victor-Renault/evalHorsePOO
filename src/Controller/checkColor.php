@@ -2,21 +2,24 @@
 
 namespace App\Controller;
 
-class checkColor{
+class checkColor implements InterfaceColor
+{
 
         // on vérifier que la couleur du cheval correspond bien a une des couleurs enregistrées, on renvoi un message d'erreur dans le cas contraire
 
 
-    public function checkColor(string $nom): string
+    public function color(string $color): string
     {
-        if ($this->nom = strpos($nom,$this->color)) {
-            $this->nom = $nom;
-            return $this->nom;
-        }
-    
-     else {
-        return false;
-                echo "Merci de choisir entre Alzan, Bai, Pie, Grey, White";
-            }
+        $method = match($color){
+            'Grey' => $this->color($color),
+            'White' => $this->color($color),
+            'ALzan' => $this->color($color),
+            'Bai' => $this->color($color),
+            'Pie' => $this->color($color),
+            default => throw new \Exception("Merci de choisir entre Alzan, Bai, Pie, Grey, White")
+
+        };
+        return $method;
     }
-}
+
+    }

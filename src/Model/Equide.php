@@ -1,11 +1,8 @@
 <?php
 namespace App\Controller;
 
-use Capabilitie;
-
 abstract class Equide
 {
-    use checkCapa;
     use checkRider;
 
     // Propriétés
@@ -14,21 +11,21 @@ abstract class Equide
     protected Rider $rider;
     protected Category $category;
     protected Color $color;
-    protected Capabilitie $capabilitie;
+    protected Capability $capability;
     private int $tabCheval;
     
 
     // Constructeur
     
-    public function __construct(string $id, int $water, Rider $rider, Category $category, Color $color, int $tabCheval, Capabilitie $capabilitie)
+    public function __construct(string $id, int $water, Rider $rider, Category $category, int $tabCheval, Capability $capability, Color $color)
     {
         $this->setId($id)
             ->setWater($water)
             ->setRider($rider)
             ->setCategory($category)
-            ->setColor($color)
             ->setTabCheval($tabCheval)
-            ->setCapabilitie($capabilitie)
+            ->setCapability($capability)
+            ->setColor($color)
             ;
     }
 
@@ -54,26 +51,6 @@ abstract class Equide
         $this->id .= $this->color[0] . '-'; // la premiere lettre de la couleur
         $this->id .= count($id); // on compte le nombre d'id enregsitré ce qui correspond au nombre de chevaux ajoutés.
 
-
-        return $this;
-    }
-
-    /**
-     * Get the value of color
-     */ 
-    public function getColor(): Color
-    {
-        return $this->color;
-    }
-
-    /**
-     * Set the value of color
-     *
-     * @return  self
-     */ 
-    public function setColor($color): self
-    {
-        $this->color = $color;
 
         return $this;
     }
@@ -170,24 +147,43 @@ abstract class Equide
     }
 
     /**
-     * Get the value of capabilitie
+     * Get the value of capability
      */ 
-    public function getCapabilitie(): Capabilitie
+    public function getCapability(): Capability
     {
-        return $this->capabilitie;
+        return $this->capability;
     }
 
     /**
-     * Set the value of capabilitie
+     * Set the value of capability
      *
      * @return  self
      */ 
 
-    public function setCapabilitie($capabilitie): self
+    public function setCapability($capability): self
     {
-        checkCapa::checkCapa($capabilitie);
-        $this->capabilitie = $capabilitie;
+        $this->capability = $capability;
         return $this;
         
+    }
+
+    /**
+     * Get the value of color
+     */ 
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    /**
+     * Set the value of color
+     *
+     * @return  self
+     */ 
+    public function setColor($color)
+    {
+        $this->color = $color;
+
+        return $this;
     }
 }

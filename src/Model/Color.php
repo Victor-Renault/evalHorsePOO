@@ -7,35 +7,35 @@ abstract class Color extends Equide
 
     use checkColor;
     // Propriétés
-    protected string $nom;
-    protected string $color;
 
-    public function __construct(string $nom,string $color = 'Alzan Bai Pie Grey White')
+    protected string $nomColorColor;
+
+    public function __construct(string $nomColor)
     {
-        $this->setNom($nom);
-        $this->setNom($color);
+        $this->setnomColor($nomColor);
+        
     }
 
     /**
-     * Get the value of nom
+     * Get the value of nomColor
      */
-    public function getNom(): string
+    public function getnomColor(): string
     {
-        return $this->nom;
+        return $this->nomColor;
     }
 
     /**
-     * Set the value of nom
+     * Set the value of nomColor
      *
      * @return  self
      */
 
 
-    protected function setNom($nom): self
+    protected function setnomColor($nomColor): self
     {
 
-        checkColor::checkColor($nom);
-        $this->nom = $nom;
+        checkColor::Color($nomColor);
+        $this->nomColor = $nomColor;
         return $this;
         
 

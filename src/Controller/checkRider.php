@@ -11,8 +11,8 @@ class checkRider
     //sinon on affecte le rider au cheval et tabCheval prend +1
         
         if ($this->tabCheval>=5) {
-            return false;
-            echo"impossible d'ajouter un cheval en plus, vous en avez deja 5";
+            throw new \Exception("impossible d'ajouter un cheval en plus, vous en avez deja 5");
+
         } else {
             $this->tabCheval++;
             $this->rider = $rider;

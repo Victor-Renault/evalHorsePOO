@@ -2,26 +2,23 @@
 
 namespace App\Controller;
 
-
-
-abstract class Category extends Equide
+abstract class Capability extends Equide
 {
-    use checkHorse;
-
+    
+    use checkCapa;
     // Propriétés
-    public string $nom;
-    protected string $category;
+    protected string $nom;
 
     public function __construct(string $nom)
     {
-        $this->setNom($nom);
-        
+        $this->setnom($nom);
+
     }
 
     /**
      * Get the value of nom
-     */
-    public function getNom(): string
+     */ 
+    public function getnom(): string
     {
         return $this->nom;
     }
@@ -30,14 +27,11 @@ abstract class Category extends Equide
      * Set the value of nom
      *
      * @return  self
-     */
-    
-
-    public function setNom(string $nom): self
+     */ 
+    protected function setnom($nom): self
     {
-        checkHorse::checkHorse($this->nom);
+        checkCapa::checkCapa($nom);
         $this->nom = $nom;
         return $this;
     }
-
 }

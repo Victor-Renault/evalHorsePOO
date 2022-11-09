@@ -2,20 +2,22 @@
 
 namespace App\Controller;
 
+class checkHorse implements InterfaceRace
+{
 
-class checkHorse{
+        // on vérifier que la couleur du cheval correspond bien a une des couleurs enregistrées, on renvoi un message d'erreur dans le cas contraire
 
-    // on vérifier que la catégory du cheval correspond bien a une des catégory enregistrées, on renvoi un message d'erreur dans le cas contraire
 
     public function checkHorse(string $nom): string
     {
-        if ($this->nom = strpos($nom,$this->category)) {
-            $this->nom = $nom;
-            return $this->nom;
-        }else {
-            return false;
-            echo "Merci de choisir entre Sheitland, Poney, Horse";
+        $method = match($nom){
+            'Sheitland' => $this->checkHorse($nom),
+            'Poney' => $this->checkHorse($nom),
+            'Horse' => $this->checkHorse($nom),
+            default => throw new \Exception("Merci de choisir entre Sheitland, Poney, Horse")
 
-        }
+        };
+        return $method;
     }
-}
+
+    }
