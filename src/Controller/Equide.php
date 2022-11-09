@@ -194,6 +194,13 @@ abstract class Equide
 
     public function setCapabilitie($capabilitie): self
     {
+
+        $this-> checkCapa($capabilitie);
+        return $this;
+        
+    }
+
+    private function checkCapa($capabilitie){
         if($this->category = 'Horse'){
             if($capabilitie = 'PoneyGames'){
                 return false;

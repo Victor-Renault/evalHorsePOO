@@ -32,15 +32,23 @@ abstract class Color extends Equide
 
     protected function setNom($nom): self
     {
-        if ($this->nom = strpos($nom,$this->color)) {
-        $this->nom = $nom;
+
+        $this->checkColor($nom);
+        return $this;
+        
+
     }
 
- else {
-    return false;
-            echo "Merci de choisir entre Alzan, Bai, Pie, Grey, White";
+    private function checkColor(string $nom): string
+    {
+        if ($this->nom = strpos($nom,$this->color)) {
+            $this->nom = $nom;
         }
-        return $this->nom;
-
+    
+     else {
+        return false;
+                echo "Merci de choisir entre Alzan, Bai, Pie, Grey, White";
+            }
+            return $this->nom;
     }
 }

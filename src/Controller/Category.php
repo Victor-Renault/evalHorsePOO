@@ -32,13 +32,17 @@ abstract class Category extends Equide
 
     protected function setNom($nom): self
     {
-        if ($this->nom = strpos($nom,$this->category)) {
-                    $this->nom = $nom;
-                }else {
-            return false;
-            echo "Merci de choisir entre Sheitland, Poney, Horse";
-        }
+        $this-> checkHorse($nom);
         return $this;
+    }
+    
+    private function checkHorse(string $nom){
+        if ($this->nom = strpos($nom,$this->category)) {
+            $this->nom = $nom;
+        }else {
+    return false;
+    echo "Merci de choisir entre Sheitland, Poney, Horse";
+}
     }
 
     /**

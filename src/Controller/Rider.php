@@ -47,7 +47,7 @@ class Rider extends Human
 
     // On récupere chaque capabilitie de chacun de ses cheavaux en les ajoutants a gameTypes
 
-    public function setGameType($gameType)
+    private function setGameType($gameType)
     {
         $gameType = Equide::setCapabilitie($gameType);
         $this->gameType = $gameType;
