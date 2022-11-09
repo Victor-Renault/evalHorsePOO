@@ -9,6 +9,7 @@ abstract class Event
     protected int $maxWater;
     protected Equide $equide;
     private array $tabChevalDeCompeteWow;
+    private int $actualWater;
     
 
     // Constructeur
@@ -22,19 +23,30 @@ abstract class Event
             ;
     }
 
+    
+    
+
     public function subscribeHorse(Equide $equide): self
     {
+        // On compare nos 2 tableaux, si la fonction ne retourne rien, le cheval n'est pas inscrit, sinon on renvoit un message d'erreur
+
         $e = array_diff($this->tabChevalDeCompeteWow[],$equide);
         if($e === $this->tabChevalDeCompeteWow){
             $this->tabChevalDeCompeteWow[] = $equide;
             return $this;
         }else{
+            return false;
             echo "votre cheval est deja inscrit";
         }
-        $maxwater = $this->maxwater + $this->water;
-        if($this->water){
-//l'idee c'est de récuperer la somme de la conso, si elle est supp a la capacité max, en empeche l'inscription
+        // On ajoute la consommation d'eau du cheval a la consommation total des chevaux deja inscrit
+        // Si cette valeur est supérieur a la capacité maximum d'approvisionnement en eau du haras, on renvoit un messag d'erreur
+
+        $this->actualWater = $this->actualWater + $this->water;
+        if($this->actualWater > $this->maxWater){
+            return false;
+            echo " le haras est dans l'inscapacité d'approvisionner l'eau nécéssaire à votre cheval, merci de votre compréhension"; 
         }
+        return $this;
     }
 
 

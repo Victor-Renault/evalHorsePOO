@@ -5,20 +5,14 @@ namespace App\Controller;
 class Rider extends Human
 {
     // Propriétés
+    protected Equide $equide;
+    protected array $gameType;
 
 
-    public function __construct(string $nom, string $adresse, string $street, string $postCode, string $city, Categorie $categorie)
+    public function __construct(string $nom, string $adresse, string $street, string $postCode, string $city, Categorie $categorie, Equide $equide, array $gameType)
     {
-        parent::__construct($nom,$adresse,$street,$postCode,$city,$categorie);
+        parent::__construct($nom,$adresse,$street,$postCode,$city,$categorie,$equide);
     }
-
-    /*
-    setGameType(): self
-
-    Affect à un Cavalier le type de jeu qu'il peut pratiquer
-
-
-
 
     /**
      * @return string
@@ -31,7 +25,34 @@ class Rider extends Human
         Rue : {$this->getStreet()}\n
         PostCode : {$this->getpostCode()}\n
         City : {$this->getCity()}\n
+        Jeu : {$this->getGameType()}\n
         Categorie du Rider : {$this->getCategorie()}\n";
     }
 
+
+    /**
+     * Get the value of gameType
+     */ 
+    public function getGameType()
+    {
+        
+        return $this->gameType;
+    }
+
+    /**
+     * Set the value of gameType
+     *
+     * @return  self
+     */ 
+
+    // On récupere chaque capabilitie de chacun de ses cheavaux en les ajoutants a gameTypes
+
+    public function setGameType($gameType)
+    {
+        $gameType = Equide::setCapabilitie($gameType);
+        $this->gameType = $gameType;
+        return $this;   
+
+        
+    }
 }

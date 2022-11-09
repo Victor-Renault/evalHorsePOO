@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use Capabilitie;
 
-abstract class Equide extends Animal
+abstract class Equide
 {
 
     // Propriétés
@@ -30,12 +30,7 @@ abstract class Equide extends Animal
             ;
     }
 
-    /*L'identifiant doit être généré suivant le pattern : 000-n-C-N
-Où n est la première lettre du nom
-C est la première lettre de la couleur
-Et Nest le nombre d'équidés créés au moment de la création de celui-ci.
 
-*/
     /**
      * Get the value of id
      */ 
@@ -50,9 +45,13 @@ Et Nest le nombre d'équidés créés au moment de la création de celui-ci.
      * @return  self
      */ 
     public function setId($id): self
-    {
+    {        
 
         $this->id = $id;
+        $this->id .= $this->category[0] . '-'; // on prend la premiere lettre du nom
+        $this->id .= $this->color[0] . '-'; // la premiere lettre de la couleur
+        $this->id .= count($id); // on compte le nombre d'id enregsitré ce qui correspond au nombre de chevaux ajoutés.
+
 
         return $this;
     }
@@ -110,9 +109,15 @@ Et Nest le nombre d'équidés créés au moment de la création de celui-ci.
      *
      * @return  self
      */ 
+
+     // si le nombre de cheval est supérieur ou égale à 5, on rempeche l'ajout et on renvoi un message 
+    //sinon on affecte le rider au cheval et tabCheval prend +1
+
+
     public function setRider($rider): self
     {
-        if($this->tabCheval>=5){
+        if($this->tabCheval>=5){ 
+            return false;
             echo"impossible d'ajouter un cheval en plus, vous en avez deja 5";
         }else{
             $this->tabCheval++;
@@ -183,12 +188,17 @@ Et Nest le nombre d'équidés créés au moment de la création de celui-ci.
      *
      * @return  self
      */ 
+
+    //on vérifie si la category est un cheval et si celui si est inscrit au poneyGames, si c'est le cas, on renvoi un message d'erreur
+    //sinon on set la capability
+
     public function setCapabilitie($capabilitie): self
     {
         if($this->category = 'Horse'){
             if($capabilitie = 'PoneyGames'){
-                echo "ta deja vu un cheval au PoneyGames toi ? :) \n 
-                Merci d'inscrire votre cheval à un autre type de compétition";
+                return false;
+                echo "ta deja vu un cheval au PoneyGames :) ?\n 
+                Merci d'inscrire ce cheval à un autre type de compétition";
             }
             else{
 
