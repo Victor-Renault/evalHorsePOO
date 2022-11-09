@@ -25,18 +25,7 @@ class Rider extends Human
         Rue : {$this->getStreet()}\n
         PostCode : {$this->getpostCode()}\n
         City : {$this->getCity()}\n
-        Jeu : {$this->getGameType()}\n
         Categorie du Rider : {$this->getCategorie()}\n";
-    }
-
-
-    /**
-     * Get the value of gameType
-     */ 
-    public function getGameType()
-    {
-        
-        return $this->gameType;
     }
 
     /**
@@ -45,11 +34,9 @@ class Rider extends Human
      * @return  self
      */ 
 
-    // On récupere chaque capabilitie de chacun de ses cheavaux en les ajoutants a gameTypes
-
-    private function setGameType($gameType)
+    private function setGameType(Equide $capabilitie, Equide $rider, $gameType)
     {
-        $gameType = Equide::setCapabilitie($gameType);
+        subRider::subRider($capabilitie, $rider, $gameType);
         $this->gameType = $gameType;
         return $this;   
 

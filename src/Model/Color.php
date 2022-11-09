@@ -4,6 +4,8 @@ namespace App\Controller;
 
 abstract class Color extends Equide
 {
+
+    use checkColor;
     // Propriétés
     protected string $nom;
     protected string $color;
@@ -28,27 +30,16 @@ abstract class Color extends Equide
      * @return  self
      */
 
-    // on vérifier que la couleur du cheval correspond bien a une des couleurs enregistrées, on renvoi un message d'erreur dans le cas contraire
 
     protected function setNom($nom): self
     {
 
-        $this->checkColor($nom);
+        checkColor::checkColor($nom);
+        $this->nom = $nom;
         return $this;
         
 
     }
 
-    private function checkColor(string $nom): string
-    {
-        if ($this->nom = strpos($nom,$this->color)) {
-            $this->nom = $nom;
-        }
     
-     else {
-        return false;
-                echo "Merci de choisir entre Alzan, Bai, Pie, Grey, White";
-            }
-            return $this->nom;
-    }
 }
